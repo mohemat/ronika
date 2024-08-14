@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+Ronika Project
+This repository contains a React project developed as a test task for Ronika. The project is built using Vite, TypeScript, and Tailwind CSS, along with additional libraries like Axios, React Query, and React Hook Form for data fetching and form management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Table of Contents
+Technologies Used
+Getting Started
+Prerequisites
+Installation
+Running the Project
+Usage
+License
+Technologies Used
+React with TypeScript: Frontend framework with strong typing.
+Vite: Fast build tool and development server.
+Tailwind CSS: Utility-first CSS framework.
+Axios: Promise-based HTTP client for API requests.
+React Query: Data-fetching and caching library.
+React Hook Form: Form management library.
+Getting Started
+Prerequisites
+Before you begin, ensure you have the following installed on your machine:
 
-Currently, two official plugins are available:
+Node.js (version 14 or above)
+npm (version 6 or above)
+Installation
+Follow these steps to set up and run the project locally:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone the repository:
 
-## Expanding the ESLint configuration
+bash
+Copy code
+git clone https://github.com/your-username/ronika-project.git
+Navigate to the project directory:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+bash
+Copy code
+cd ronika-project
+Install the dependencies:
 
-- Configure the top-level `parserOptions` property like this:
+bash
+Copy code
+npm install
+Running the Project
+To start the development server, run the following command:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+bash
+Copy code
+npm run dev
+This will start the Vite development server. Open your browser and navigate to http://localhost:5173 to view the application.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Building for Production
+To create an optimized production build, run:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+bash
+Copy code
+npm run build
+The production-ready files will be output to the dist directory.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Usage
+Axios is used to handle API requests.
+React Query manages server-state, caching, and background fetching.
+React Hook Form manages form state and validation.
+You can customize and expand the application as per the project requirements.
+
+License
+This project is licensed under the MIT License.
