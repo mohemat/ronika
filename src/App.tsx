@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {MainLayout} from "@/components/layout";
+import {BrowserRouter as Router} from "react-router-dom";
+import * as React from "react";
+import {CategorySection} from "@/features/category/components/CategorySection.tsx";
+import {LatestSection, PopularSection} from "@/features/post";
+import {EmailForm} from "@/features/email";
+import {TestImage} from "@/features/home";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <Router>
+            <MainLayout>
+                <div className={'mt-4 mb-10'}>
+                    <h3 className={'text-center font-semibold mb-4'}>
+                        لورم ایپسوم متن ساختگی
+                    </h3>
+                    <p className={'flex mx-auto text-center text-sm w-full lg:w-[820px] leading-6'}>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون
+                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <CategorySection/>
+                <PopularSection/>
+                <LatestSection/>
+                <EmailForm/>
+                <TestImage/>
+            </MainLayout>
+        </Router>
+    )
 }
 
 export default App
