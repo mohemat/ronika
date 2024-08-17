@@ -19,13 +19,9 @@ npm (version 6 or above)
 Installation
 Follow these steps to set up and run the project locally:
 
-Clone the repository:
+Clone the repository and Navigate to the project directory:
 
-git clone https://github.com/your-username/ronika-project.git
-
-Navigate to the project directory:
-
-cd ronika-project
+cd ronika
 
 Install the dependencies:
 
@@ -36,10 +32,3 @@ To start the development server, run the following command:
 npm run dev
 
 This will start the Vite development server. Open your browser and navigate to http://localhost:5173 to view the application.
-
-Building for Production
-To create an optimized production build, run:
-
-npm run build
-
-The production-ready files will be output to the dist directory.
