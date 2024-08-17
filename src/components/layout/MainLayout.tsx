@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Navbar} from "@/components/nav/Navbar.tsx";
-import {Header} from "@/components/header";
+import {Header} from "@/features/home";
 import {ContactForm} from "@/features/contact";
 import {Footer} from "@/components/footer";
 

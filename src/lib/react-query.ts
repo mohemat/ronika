@@ -1,28 +1,26 @@
-import { AxiosError } from 'axios';
-import { QueryClient, UseQueryOptions, UseMutationOptions, DefaultOptions } from 'react-query';
-import { PromiseValue } from 'type-fest';
+import { UseMutationOptions, DefaultOptions } from '@tanstack/react-query';
 
-const queryConfig: DefaultOptions = {
+export const queryConfig = {
   queries: {
-    useErrorBoundary: true,
+    // throwOnError: true,
     refetchOnWindowFocus: false,
     retry: false,
+    staleTime: 1000 * 60,
   },
-};
+} satisfies DefaultOptions;
 
-export const queryClient = new QueryClient({ defaultOptions: queryConfig });
+export type ApiFnReturnType<FnType extends (...args: any) => Promise<any>> =
+    Awaited<ReturnType<FnType>>;
 
-export type ExtractFnReturnType<FnType extends (...args: any) => any> = PromiseValue<
-  ReturnType<FnType>
+export type QueryConfig<T extends (...args: any[]) => any> = Omit<
+    ReturnType<T>,
+    'queryKey' | 'queryFn'
 >;
 
-export type QueryConfig<QueryFnType extends (...args: any) => any> = Omit<
-  UseQueryOptions<ExtractFnReturnType<QueryFnType>>,
-  'queryKey' | 'queryFn'
->;
-
-export type MutationConfig<MutationFnType extends (...args: any) => any> = UseMutationOptions<
-  ExtractFnReturnType<MutationFnType>,
-  AxiosError,
-  Parameters<MutationFnType>[0]
+export type MutationConfig<
+    MutationFnType extends (...args: any) => Promise<any>,
+> = UseMutationOptions<
+    ApiFnReturnType<MutationFnType>,
+    Error,
+    Parameters<MutationFnType>[0]
 >;

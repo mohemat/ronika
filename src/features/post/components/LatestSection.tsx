@@ -1,7 +1,10 @@
 import {Link} from "react-router-dom";
-import {PostCard} from "@/features/post";
+import {PostCard, useLatest} from "@/features/post";
+import {SkeletonCard} from "@/components/elements";
 
 export const LatestSection = () => {
+    const latestQuery = useLatest({})
+
     return (
         <div className={'mt-20'}>
             <div className={'flex items-center justify-between mb-6'}>
@@ -13,8 +16,14 @@ export const LatestSection = () => {
             </div>
 
             <div className={'grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'}>
-                {Array.from({length: 4}).map(() => (
-                    <PostCard/>
+                {latestQuery.isLoading &&
+                    Array.from({length: 4}).map((_,index) => (
+                        <SkeletonCard key={index}/>
+                    ))
+                }
+                {latestQuery.data?.data.slice(0, 4).map((post) => (
+                    <PostCard title={post.title} abstract={post.abstract} imageUrl={post.imgUrl}
+                              liked={post.liked} views={post.views} section={post.section.name} postId={post.id} key={post.id}/>
                 ))}
             </div>
 
